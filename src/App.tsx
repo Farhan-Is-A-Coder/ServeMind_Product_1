@@ -1,0 +1,35 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import ExplorePage from './pages/ExplorePage';
+import ModelDetailPage from './pages/ModelDetailPage';
+import AuthPage from './pages/AuthPage';
+import PricingPage from './pages/PricingPage';
+import UploadPage from './pages/UploadPage';
+import DashboardPage from './pages/DashboardPage';
+
+function App() {
+  return (
+    <Router>
+      <div className="min-h-screen bg-gray-50 flex flex-col">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/explore" element={<ExplorePage />} />
+            <Route path="/model/:id" element={<ModelDetailPage />} />
+            <Route path="/auth" element={<AuthPage />} />
+            <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/upload" element={<UploadPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  );
+}
+
+export default App;
