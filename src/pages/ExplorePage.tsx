@@ -114,36 +114,36 @@ const ExplorePage = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-slate-900 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">Explore AI Models</h1>
-          <p className="text-lg text-gray-600">Discover and test cutting-edge AI models from our community</p>
+          <h1 className="text-3xl font-bold text-white mb-4">Explore AI Models</h1>
+          <p className="text-lg text-slate-300">Discover and test cutting-edge AI models from our community</p>
         </div>
 
         {/* Search and Filters */}
-        <div className="bg-white p-6 rounded-xl shadow-sm mb-8">
+        <div className="bg-slate-800 p-6 rounded-xl shadow-lg shadow-cyan-500/10 mb-8 border border-slate-700">
           <div className="flex flex-col lg:flex-row gap-4">
             {/* Search */}
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
               <input
                 type="text"
                 placeholder="Search models..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-white placeholder-slate-400"
               />
             </div>
 
             {/* Category Filter */}
             <div className="flex items-center space-x-2">
-              <Filter className="h-5 w-5 text-gray-400" />
+              <Filter className="h-5 w-5 text-slate-400" />
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                className="px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-white"
               >
                 {categories.map(category => (
                   <option key={category.id} value={category.id}>
@@ -157,7 +157,7 @@ const ExplorePage = () => {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+              className="px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-white"
             >
               <option value="popular">Most Popular</option>
               <option value="rating">Highest Rated</option>
@@ -175,8 +175,8 @@ const ExplorePage = () => {
               onClick={() => setSelectedCategory(category.id)}
               className={`flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 selectedCategory === category.id
-                  ? 'bg-indigo-600 text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300'
+                  ? 'bg-gradient-to-r from-cyan-500 to-emerald-500 text-white'
+                  : 'bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-600'
               }`}
             >
               <category.icon className="h-4 w-4" />
@@ -188,7 +188,7 @@ const ExplorePage = () => {
         {/* Models Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {sortedModels.map(model => (
-            <div key={model.id} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden group">
+            <div key={model.id} className="bg-slate-800 rounded-xl shadow-lg shadow-cyan-500/10 hover:shadow-xl hover:shadow-cyan-500/20 transition-all duration-200 overflow-hidden group border border-slate-700 hover:border-cyan-400">
               <div className="aspect-w-16 aspect-h-9 relative overflow-hidden">
                 <img
                   src={model.image}
@@ -198,8 +198,8 @@ const ExplorePage = () => {
                 <div className="absolute top-4 right-4">
                   <span className={`px-2 py-1 text-xs font-medium rounded-full ${
                     model.price === 'Free' 
-                      ? 'bg-green-100 text-green-800' 
-                      : 'bg-indigo-100 text-indigo-800'
+                      ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' 
+                      : 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30'
                   }`}>
                     {model.price}
                   </span>
@@ -208,18 +208,18 @@ const ExplorePage = () => {
               
               <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors">
+                  <h3 className="text-lg font-semibold text-white group-hover:text-cyan-400 transition-colors">
                     {model.name}
                   </h3>
                   <div className="flex items-center space-x-1">
-                    <Star className="h-4 w-4 text-yellow-400 fill-current" />
-                    <span className="text-sm font-medium text-gray-700">{model.rating}</span>
+                    <Star className="h-4 w-4 text-emerald-400 fill-current" />
+                    <span className="text-sm font-medium text-slate-300">{model.rating}</span>
                   </div>
                 </div>
                 
-                <p className="text-gray-600 text-sm mb-4 line-clamp-2">{model.description}</p>
+                <p className="text-slate-400 text-sm mb-4 line-clamp-2">{model.description}</p>
                 
-                <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                <div className="flex items-center justify-between text-sm text-slate-500 mb-4">
                   <span>by {model.author}</span>
                   <div className="flex items-center space-x-4">
                     <div className="flex items-center space-x-1">
@@ -235,7 +235,7 @@ const ExplorePage = () => {
                 
                 <Link
                   to={`/model/${model.id}`}
-                  className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors text-center font-medium block"
+                  className="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-white py-2 px-4 rounded-lg hover:from-cyan-400 hover:to-emerald-400 transition-all text-center font-medium block"
                 >
                   Try Now
                 </Link>
@@ -246,9 +246,9 @@ const ExplorePage = () => {
 
         {sortedModels.length === 0 && (
           <div className="text-center py-12">
-            <Brain className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-900 mb-2">No models found</h3>
-            <p className="text-gray-500">Try adjusting your search criteria or browse different categories.</p>
+           <Brain className="h-16 w-16 text-slate-600 mx-auto mb-4" />
+           <h3 className="text-lg font-medium text-white mb-2">No models found</h3>
+           <p className="text-slate-400">Try adjusting your search criteria or browse different categories.</p>
           </div>
         )}
       </div>

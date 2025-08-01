@@ -13,7 +13,7 @@ import DashboardPage from './pages/DashboardPage';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-50 flex flex-col">
+      <div className="min-h-screen bg-slate-900 flex flex-col">
         <Header />
         <main className="flex-grow">
           <Routes>
