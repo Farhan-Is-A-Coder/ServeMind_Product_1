@@ -190,9 +190,20 @@ const PricingPage = () => {
                       ? 'bg-indigo-600 text-white hover:bg-indigo-700'
                       : 'bg-gray-900 text-white hover:bg-gray-800'
                   }`}
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center px-8 py-3 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition-colors"
                 >
-                  {plan.cta}
-                </button>
+                  {plan.name === 'Enterprise' ? (
+                    <Link to="/contact" className="block">
+                      {plan.cta}
+                    </Link>
+                  ) : (
+                    <Link to={`/checkout/${plan.name.toLowerCase()}`} className="block">
+                      {plan.cta}
+                    </Link>
+                  )}
+                </Link>
               </div>
             </div>
           ))}

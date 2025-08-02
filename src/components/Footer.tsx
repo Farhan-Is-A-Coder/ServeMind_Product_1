@@ -39,12 +39,20 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-cyan-400 font-semibold mb-4">Support</h3>
+            <h3 className="text-cyan-400 font-semibold mb-4">Resources</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">Documentation</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">API Reference</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">Help Center</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">Contact Us</a></li>
+              <li><Link to="/docs" className="hover:text-cyan-400 transition-colors">Documentation</Link></li>
+              <li><Link to="/support" className="hover:text-cyan-400 transition-colors">Support</Link></li>
+              <li><Link to="/about" className="hover:text-cyan-400 transition-colors">About Us</Link></li>
+              <li><Link to="/contact" className="hover:text-cyan-400 transition-colors">Contact</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-cyan-400 font-semibold mb-4">Legal</h3>
+            <ul className="space-y-2">
+              <li><Link to="/terms" className="hover:text-cyan-400 transition-colors">Terms of Service</Link></li>
+              <li><Link to="/privacy" className="hover:text-cyan-400 transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
         </div>
