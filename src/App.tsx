@@ -22,7 +22,7 @@ import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/ServeMind_Product_1">
       <div className="min-h-screen bg-slate-900 flex flex-col">
         <Header />
         <main className="flex-grow">
